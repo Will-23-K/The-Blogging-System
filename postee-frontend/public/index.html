@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+
+    <!-- App metadata -->
+    <meta
+      name="description"
+      content="Postee is a modern platform for video creators to share content, connect with audiences, and build their community."
+    />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+
+    <title>Postee - Video Creator Platform</title>
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="%PUBLIC_URL%/css/style.css" />
+    <link rel="stylesheet" href="%PUBLIC_URL%/css/modal.css" />
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+
+    <!-- Fixed Header -->
+    <header class="app-header">
+      <div class="logo">Postee</div>
+    </header>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-section">
+        <div class="sidebar-title">Main</div>
+        <div class="sidebar-item active" data-page="home">
+          <span class="sidebar-icon">🏠</span>
+          <span>Profile</span>
+        </div>
+        <div class="sidebar-item" data-page="search">
+          <span class="sidebar-icon">🔍</span>
+          <span>Search</span>
+        </div>
+        <div class="sidebar-item" data-page="feed">
+          <span class="sidebar-icon">📺</span>
+          <span>Feed</span>
+        </div>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-title">Social</div>
+        <div class="sidebar-item" data-page="messages">
+          <span class="sidebar-icon">💬</span>
+          <span>Messages</span>
+        </div>
+        <div class="sidebar-item" data-page="notifications">
+          <span class="sidebar-icon">🔔</span>
+          <span>Notifications</span>
+        </div>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-title">Account</div>
+        <div class="sidebar-item" data-page="settings">
+          <span class="sidebar-icon">⚙️</span>
+          <span>Account Settings</span>
+        </div>
+        <div class="sidebar-item" data-page="store">
+          <span class="sidebar-icon">🛒</span>
+          <span>Postee Store</span>
+        </div>
+        <div class="sidebar-item" data-page="help">
+          <span class="sidebar-icon">❓</span>
+          <span>Help</span>
+        </div>
+        <div class="sidebar-item" data-page="logout">
+          <span class="sidebar-icon">🚪</span>
+          <span>Log Out</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Topband with Word of the Day -->
+    <section class="topband">
+      <div class="word-of-day">
+        Creativity
+        <button class="edit-word" id="editWordBtn">Edit</button>
+      </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Profile Card -->
+      <section class="profile-card">
+        <div class="profile-main">
+          <img class="avatar" src="%PUBLIC_URL%/images/abstract.png" alt="User profile picture" />
+          <div class="profile-info">
+            <h1 class="username">
+              @ywk.creator
+              <span class="verified-badge">✓</span>
+            </h1>
+            <div class="bio" id="bioText">
+              Video creator passionate about storytelling through visuals. Making content that inspires and entertains.
+            </div>
+            <textarea class="bio-edit" id="bioEdit" maxlength="120" style="display: none;"></textarea>
+            <div class="bio-chars" id="bioChars" style="display: none;">120 characters remaining</div>
+            <button class="btn btn-primary" id="saveBioBtn" style="display: none;">Save Bio</button>
+            <button class="btn btn-secondary" id="cancelBioBtn" style="display: none;">Cancel</button>
+            <button class="btn btn-secondary" id="editBioBtn">Edit Bio</button>
+          </div>
+        </div>
+
+        <div class="meta-grid">
+          <div class="meta">
+            <div class="meta-label">Followers</div>
+            <div class="meta-value">1.24b</div>
+          </div>
+          <div class="meta">
+            <div class="meta-label">Following</div>
+            <div class="meta-value">327k</div>
+          </div>
+          <div class="meta">
+            <div class="meta-label">Posts</div>
+            <div class="meta-value">238k</div>
+          </div>
+        </div>
+
+        <div class="profile-context">
+          <div class="pill">
+            Entertainer, Streamer
+            <span class="edit-icon" data-edit="category">✏️</span>
+          </div>
+          <div class="pill">
+            Soweto, South Africa
+            <span class="edit-icon" data-edit="location">✏️</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Pinned Section -->
+      <section class="pinned">
+        <h2 class="section-title">MY FAVOURITE WORK</h2>
+        <div class="pinned-grid">
+          <article class="pin"><img src="%PUBLIC_URL%/images/thumb.png" alt="Pinned work" /></article>
+          <article class="pin"><img src="%PUBLIC_URL%/images/IMG_20230718_162953.jpg" alt="Pinned work" /></article>
+          <article class="pin"><img src="%PUBLIC_URL%/images/IMG_1708.JPG" alt="Pinned work" /></article>
+          <article class="pin"><img src="%PUBLIC_URL%/images/IMG_20230605_163127.jpg" alt="Pinned work" /></article>
+          <article class="pin"><img src="%PUBLIC_URL%/images/IMG_20230708_173209.jpg" alt="Pinned work" /></article>
+          <article class="pin"><img src="%PUBLIC_URL%/images/IMG_20231027_183312.jpg" alt="Pinned work" /></article>
+        </div>
+      </section>
+
+      <!-- Navigation Menu -->
+      <nav class="nav-menu">
+        <div class="nav-item active" data-target="videos">Videos</div>
+        <div class="nav-item" data-target="peeps">Peeps</div>
+        <div class="nav-item" data-target="posts">Posts</div>
+        <div class="nav-item" data-target="reposts">Reposts</div>
+      </nav>
+
+      <!-- Content Pages -->
+      <div class="content-page active" id="videos">
+        <h2 class="section-title">Long Form Videos</h2>
+        <div class="grid videos-grid"></div>
+      </div>
+
+      <div class="content-page" id="peeps">
+        <h2 class="section-title">Short Form Videos</h2>
+        <div class="grid peeps-grid"></div>
+      </div>
+
+      <div class="content-page" id="posts">
+        <h2 class="section-title">Posts</h2>
+        <div class="grid posts-grid"></div>
+      </div>
+
+      <div class="content-page" id="reposts">
+        <h2 class="section-title">Reposts</h2>
+        <div class="grid reposts-grid"></div>
+      </div>
+
+      <!-- Composer -->
+      <section class="composer">
+        <h2 class="section-title">Create</h2>
+        <div class="composer-card">
+          <div class="composer-tabs">
+            <div class="composer-tab active" data-type="video">Video</div>
+            <div class="composer-tab" data-type="peep">Peep</div>
+            <div class="composer-tab" data-type="post">Post</div>
+          </div>
+
+          <textarea class="composer-input" placeholder="Share something breathtaking…"></textarea>
+
+          <div class="composer-upload" id="uploadArea">
+            <div class="upload-icon">📁</div>
+            <p>Click to upload or drag and drop</p>
+            <p>MP4, MOV, AVI, MKV (max 10GB)</p>
+          </div>
+
+          <div class="composer-toolbar">
+            <div class="media-options">
+              <button class="tool">🖼️</button>
+              <button class="tool">📹</button>
+              <button class="tool">🏷️</button>
+              <button class="tool">⋯</button>
+            </div>
+            <button class="publish">Post</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Modals -->
+    <div class="modal" id="wordModal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title">Edit Word of the Day</h3>
+          <button class="close-modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label class="form-label">Word or Phrase</label>
+            <input type="text" class="form-input" id="wordInput" maxlength="50" />
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" id="cancelWord">Cancel</button>
+          <button class="btn btn-primary" id="saveWord">Save</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal" id="editModal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title">Edit <span id="editTitle"></span></h3>
+          <button class="close-modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label class="form-label" id="editLabel"></label>
+            <input type="text" class="form-input" id="editInput" />
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" id="cancelEdit">Cancel</button>
+          <button class="btn btn-primary" id="saveEdit">Save</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- JavaScript Files -->
+    <script src="%PUBLIC_URL%/js/app.js" defer></script>
+    <script src="%PUBLIC_URL%/js/helpers.js" defer></script>
+    <script src="%PUBLIC_URL%/js/modal.js" defer></script>
+    <script src="%PUBLIC_URL%/js/upload.js" defer></script>
+    <script src="%PUBLIC_URL%/js/navigation.js" defer></script>
+  </body>
+</html>
